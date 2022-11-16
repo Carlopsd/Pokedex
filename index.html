@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap" rel="stylesheet">  
+</head>
+<body>
+    <section class="left">
+        <div class="leds"><!-- 3 leds sobre la pokedex  -->
+            <div class="red">
+                <div class="dot"></div>
+            </div>
+            <div class="yellow">
+                <div class="dot"></div>
+            </div>
+            <div class="green">
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="blue-led">
+            <div class="dot"></div>
+        </div><!-- Led azul -->
+
+        <div class="line"> <!-- Linea debajo de los leds -->
+            <svg>
+                <path d="M 0 7
+                    H 140
+                    A 50 50, 0, 0, 1, 170 20
+                    L 185 30
+                    A 50 50, 0, 0, 0, 200 35
+                    H 700
+                    V 50
+                    H -200
+                    V 7
+                    Z"></path></svg>
+            <div></div>
+        </div>
+
+        <div class="search">
+            <input type="text" id="pokemon" name="pokemon" placeholder="Nombre o id del pokemón">
+            <button onclick="cambiarPokemon()"><i class="bi bi-search"></i>Buscar</button>
+        </div>
+
+        <div class="screen-left">
+            <img src="./img/pokeball.gif" alt="Imagen no disponible por el momento." id="pokeImg" width="150px" height="auto">
+            <div class="Pokemon-name">
+                <h1 id="Pokemon-id"></h1>
+                <h1 id="Pokemon-title">Busca Pokemón por nombre o número</h1>
+            </div>  
+        </div>
+
+        <div class="buttons"> <!-- Botones debajo de la pantalla -->
+            <div class="black"></div>
+            <div class="red"></div>
+            <div class="blue"></div>
+        </div>
+
+        <div class="direction-buttons"> <!-- Botones de cruz -->
+        <div></div>
+        <div><i class="bi bi-caret-up-square-fill"></i></div>
+        <div></div>
+        <div><i class="bi bi-caret-left-square-fill" id="left"></i></div>
+        <div><i class="bi bi-square-fill" id="center"></i></div>
+        <div><i class="bi bi-caret-right-square-fill"></i></div>
+        <div></div>
+        <div><i class="bi bi-caret-down-square-fill"></i></div>
+        <div></div>
+    </div>
+    <div class="green-part"></div>
+    </section>
+
+    <section class="right">
+
+        <div class="line"><!-- Linea curveada -->
+            <svg>
+                <path d="M 0 7
+                H 140
+                A 50 50, 0, 0, 1, 170 20
+                L 185 30
+                A 50 50, 0, 0, 0, 200 35
+                H 700
+                V 50
+                H -200
+                V 7
+                Z"></path></svg>
+                <div></div>
+        </div>
+
+        <div class="screen-right">
+            <div id="information">
+            <div class="types">
+                <h1 id="Pokemon-type"></h1>
+                <dl id="list-types">
+                </dl>
+            </div>
+            <div class="stats">
+                <h1 id="Pokemon-stats"></h1>
+                <dl id="list-stats">
+                </dl>
+            </div>
+            <div class="Pokemon-Abilities">
+                <h1 id="Pokemon-abilities"></h1>
+                <dl id="list-abilities">
+                </dl>
+            </div>
+            <div class="Pokemon-moves">
+                <h1 id="Pokemon-moves"></h1>
+                <dl id="list-moves">
+                </dl>
+            </div>
+        </div>
+        </div>
+        <div class="grid-blue"><!--Botones azules -->
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="black-buttons">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="buttons-white">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="yellow-led">
+            <div class="dot"></div>
+        </div>
+        <div class="black-screen">
+            <div id="weight"></div>
+            <div id="height"></div>
+        </div>
+    </section>
+
+</body>
+<script src="./js/index.js"></script>
+</html>

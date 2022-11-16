@@ -1,0 +1,155 @@
+@use "decoration";
+
+
+$color-backgorung: #d90429;
+$color-screen-border: #D1D5CB;
+body{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/backgrpund-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section{
+    height: 750px;
+    background-color: $color-backgorung;
+    border-radius: 10px;
+}
+.left{
+    border: solid black 2px;
+    .search{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: sticky;
+        i{
+            margin: 5px;
+        }
+        input{
+            font-size: 1.1rem;
+            background-color: black;
+            color: $color-screen-border;
+            border-radius: 8px;
+        }
+        button{
+            font-size: 1.1rem;
+            background-color: black;
+            color: $color-screen-border;
+            margin-left: 10px;
+            border-radius: 10px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+    .screen-left{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 20px;
+        border: solid 20px $color-screen-border;
+        border-bottom: 40px solid $color-screen-border;
+        background-color: #545358;
+        width: 300px;
+        height: 220px;
+        border-radius: 10px;
+        box-shadow: -2px 2px 3px black;
+        .Pokemon-name{
+            display: flex;
+        }
+        
+        img{
+            margin: -5px 0px;
+        }
+        h1{
+            margin: 0 5px;
+        }
+    }
+    
+}
+.right{
+    margin-left: -2px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid black 2px;
+    height: 620px;
+    
+    .screen-right{
+        font-family: Sono;
+        font-size: 0.9rem;
+        color: #52b788;
+        background-color: #242423;
+        border-radius: 5px;
+        margin: 0px 20px 20px 20px;
+        padding-left: 20px;
+        height: 400px;
+        width: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        h1{
+            
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        #list-abilities{
+            column-count:2;
+        }
+        #list-moves{
+            column-count:2;
+        }
+    }
+    .black-screen{
+        div{
+            font-family: Sono;
+            font-size: 0.6rem;
+            background-color: black;
+            width: 140px;
+            height: 40px;
+            border-radius: 10px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            h1{
+                margin: 0;
+                color:#52b788; 
+            }
+        }
+        
+    }
+    .screen-right::-webkit-scrollbar{
+        background-color: #242423;
+    }
+    .screen-right::-webkit-scrollbar-thumb{
+        background-color: gray;
+        border-radius: 20px;
+        border: 1px solid #343a40;
+    }
+}
+
+@media (max-width: 900px) {
+    body{
+        overflow-x: scroll;
+        display: inline;
+        overflow-y: scroll;
+    }
+    section{
+        max-width: 400px;
+    }
+    .right{
+        margin-top: 0;
+        .screen-right{
+            margin-top: 20px;
+            width: 300px;
+        } 
+        .line{
+            display: none;
+        }
+    }
+}
