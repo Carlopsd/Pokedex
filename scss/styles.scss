@@ -142,6 +142,17 @@ section{
     section{
         max-width: 400px;
     }
+    .left{
+        .search{
+            button{
+                font-size: 0.9rem;
+            }
+        }
+        .screen-left{
+            width: 270px;
+            height: 200px;
+        }
+    }
     .right{
         margin-top: 0;
         .screen-right{
