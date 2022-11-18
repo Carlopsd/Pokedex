@@ -1,7 +1,14 @@
 const cambiarPokemon =() =>{
+
     const nombrePokemon = document.getElementById("pokemon");
     let pokeNombre = nombrePokemon.value;
-    pokeNombre= pokeNombre.toLowerCase();   
+    pokeNombre= pokeNombre.toLowerCase(); 
+
+
+    if (!isNaN(pokeNombre)){
+        pokeNombre= Number(pokeNombre)
+    }
+
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeNombre}`;
     const informartion = document.getElementById("information");
 
@@ -22,6 +29,7 @@ const cambiarPokemon =() =>{
     }).then((data) => {
         if (data) {
             informartion.style.display="inline";
+            console.log(data)
             let pokeImg = data.sprites.front_default;
             pokeImage(pokeImg);
             console.log(pokeImg);
@@ -43,6 +51,16 @@ const cambiarPokemon =() =>{
         }   
     });
 }
+
+//Función para acceder al pokemon al dar "Enter"
+const input = document.getElementById("pokemon");
+input.addEventListener("keypress",function(event){
+    if(event.key=="Enter"){
+        event.preventDefault();
+        cambiarPokemon();
+    }
+});
+
 const ocultar = () =>{
     
 }
@@ -113,8 +131,7 @@ const  pokeMoves =(moves) => {
     listMoves.innerHTML= list;
 }
 
-
 const pokeWH = (weight, height) => {
-    document.getElementById("weight").innerHTML=`<h1>Peso: ${weight} kg</h1>`;
-    document.getElementById("height").innerHTML=`<h1>Altura: ${height} cm</h1>`;;
+    document.getElementById("weight").innerHTML=`<h1>Peso: ${weight/10} kg</h1>`;
+    document.getElementById("height").innerHTML=`<h1>Altura: ${height/10} m</h1>`;;
 }

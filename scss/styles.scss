@@ -1,6 +1,5 @@
 @use "decoration";
 
-
 $color-backgorung: #d90429;
 $color-screen-border: #D1D5CB;
 body{
@@ -10,6 +9,8 @@ body{
     background-image: url(../img/backgrpund-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    width: 100wv;
 }
 section{
     height: 750px;
@@ -55,7 +56,7 @@ section{
         border-bottom: 40px solid $color-screen-border;
         background-color: #545358;
         width: 300px;
-        height: 220px;
+        height: 240px;
         border-radius: 10px;
         box-shadow: -2px 2px 3px black;
         .Pokemon-name{
@@ -133,7 +134,7 @@ section{
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     body{
         overflow-x: scroll;
         display: inline;
@@ -141,16 +142,18 @@ section{
     }
     section{
         max-width: 400px;
+        min-width: 375px;
     }
     .left{
         .search{
             button{
-                font-size: 0.9rem;
+                span{
+                    display: none;
+                }
             }
         }
         .screen-left{
             width: 270px;
-            height: 200px;
         }
     }
     .right{
