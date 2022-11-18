@@ -23,9 +23,14 @@ section{
     .search{
         margin-top: 50px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         position: sticky;
+        
+        div{
+            margin-bottom: 10px;
+        }
         i{
             margin: 5px;
         }
@@ -42,6 +47,7 @@ section{
             margin-left: 10px;
             border-radius: 10px;
         }
+        
         button:hover{
             cursor: pointer;
         }

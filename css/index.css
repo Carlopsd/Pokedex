@@ -113,7 +113,7 @@
 }
 .left .direction-buttons {
   position: relative;
-  margin-top: -20px;
+  margin-top: -40px;
   display: grid;
   justify-content: flex-end;
   right: 20px;
@@ -250,9 +250,13 @@ section {
 .left .search {
   margin-top: 50px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: sticky;
+}
+.left .search div {
+  margin-bottom: 10px;
 }
 .left .search i {
   margin: 5px;

@@ -45,9 +45,11 @@
         </div>
 
         <div class="search">
-            <input type="text" id="pokemon" name="pokemon" placeholder="Nombre del pokemón">
-            <button onclick="cambiarPokemon()"><i class="bi bi-search"></i><span>Buscar</span></button>
-            <button onclick="allPokemons()">Buscar todos</button>
+            <div>
+                <input type="text" id="pokemon" name="pokemon" placeholder="Nombre del pokemón">
+                <button onclick="cambiarPokemon()"><i class="bi bi-search"></i><span>Buscar</span></button>
+            </div>
+            <button id="all-pokes" onclick="allPokemons()">Buscar todos</button>
         </div>
 
         <div class="screen-left">
@@ -117,11 +119,11 @@
                 <dl id="list-moves">
                 </dl>
             </div>
-        </div>
-        <div id="all-pokemons">
-            <dl id="list-pokemons">
-            </dl>
-        </div>
+            </div>
+            <div id="all-pokemons">
+                <dl id="list-pokemons">
+                </dl>
+            </div>
         </div>
         <div class="grid-blue"><!--Botones azules -->
             <div></div>
