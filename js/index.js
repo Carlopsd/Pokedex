@@ -1,3 +1,7 @@
+const informartion = document.getElementById("information");
+const allPokemonList =document.getElementById("all-pokemons");
+
+
 const cambiarPokemon =() =>{
 
     const nombrePokemon = document.getElementById("pokemon");
@@ -10,7 +14,6 @@ const cambiarPokemon =() =>{
     }
 
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeNombre}`;
-    const informartion = document.getElementById("information");
 
     fetch(url).then((res) => {
         //Si no se encuntra el pokemon
@@ -29,6 +32,7 @@ const cambiarPokemon =() =>{
     }).then((data) => {
         if (data) {
             informartion.style.display="inline";
+            allPokemonList.style.display="none";
             console.log(data)
             let pokeImg = data.sprites.front_default;
             pokeImage(pokeImg);
@@ -131,7 +135,45 @@ const  pokeMoves =(moves) => {
     listMoves.innerHTML= list;
 }
 
+
 const pokeWH = (weight, height) => {
     document.getElementById("weight").innerHTML=`<h1>Peso: ${weight/10} kg</h1>`;
     document.getElementById("height").innerHTML=`<h1>Altura: ${height/10} m</h1>`;;
+}
+
+const allPokemons= () =>{
+    const url= `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`;
+    informartion.style.display="none"
+
+    fetch(url).then((res) => {
+        //Si no se encuentra la lista
+        if (res.status != "200") {
+            console.log(res);
+            pokeImage("../img/Error.jpg")
+            pokeId("")
+            pokeTitle("Lista no encontrada")
+            pokeWH("","")
+        }
+        else {
+            return res.json();
+        }
+    // Si encuentra el pokemos realizara las siguientes funciones
+    }).then((data) => {
+        informartion.style.display="none";
+        allPokemonList.style.display="inline";
+
+        console.log(data);
+        const pokemons= data.results;
+        pokeImage("../img/pokeball.gif")
+        // Filtro de ide de cada pokemon
+        const url= pokemons.map((i)=>i.url)
+        const urlSplit= url.map((i)=>i.split('/'))
+        const id= urlSplit.map((i)=>i[6])
+        const pokemon = pokemons.map((i)=> i.name)
+
+        const listPokemons=document.getElementById("list-pokemons")
+        let list=" ";
+        pokemon.forEach((i,index)=> list += `<dt>${i} id:${id[index]}</dt>`);
+        listPokemons.innerHTML= list;
+    });
 }
