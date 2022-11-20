@@ -72,7 +72,7 @@ const allPokemons= () =>{
         //Si no se encuentra la lista
         if (res.status != "200") {
             console.log(res);
-            pokeImage("../img/Error.jpg")
+            pokeImage("https://64.media.tumblr.com/93345311779201f1a31868b3fd999065/tumblr_ny96gguwnC1rzsfkvo1_250.gif")
             pokeId("")
             pokeTitle("Lista no encontrada")
             pokeWH("","")
