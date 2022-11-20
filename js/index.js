@@ -5,7 +5,7 @@ const cambiarPokemon =() =>{
 
     const nombrePokemon = document.getElementById("pokemon");
     let pokeNombre = nombrePokemon.value;
-    pokeNombre= pokeNombre.toLowerCase(); 
+    pokeNombre= pokeNombre.toLowerCase().replace(/[^a-zA-Z 0-9.]+/g,' '); 
 
 
     if (!isNaN(pokeNombre)){
@@ -89,14 +89,15 @@ const allPokemons= () =>{
         const pokemons= data.results;
         pokeImage("../img/pokeball.gif")
         // Filtro de ide de cada pokemon
-        const url= pokemons.map((i)=>i.url)
-        const urlSplit= url.map((i)=>i.split('/'))
-        const id= urlSplit.map((i)=>i[6])
-        const pokemon = pokemons.map((i)=> i.name)
 
+        const url= pokemons.map((i)=>i.url)
+        //Separa el id en el url completo y elimin el primer numero del string obtenido
+        const id = url.map((i)=>i.replace(/[^0-9]+/g, "").slice(1))
+
+        const pokemon = pokemons.map((i)=> i.name)
         const listPokemons=document.getElementById("list-pokemons")
         let list=" ";
-        pokemon.forEach((i,index)=> list += `<dt>id: ${id[index]}</dt><dd>${i}</dd>`);
+        pokemon.forEach((i,index)=> list += `<dt>${id[index]}: ${i}</dt>`);
         listPokemons.innerHTML= list;
     });
 }
