@@ -87,6 +87,7 @@ const allPokemons= () =>{
         allPokemonList.style.display="inline";
         pokeTitle("Pokemones disponibles")
         pokeId("")
+        pokeWH("","")
         
         const pokemons= data.results;
         pokeImage("./img/pokeball.gif")
