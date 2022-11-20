@@ -72,6 +72,7 @@ const allPokemons= () =>{
         //Si no se encuentra la lista
         if (res.status != "200") {
             console.log(res);
+            informartion.style.display="none";
             pokeImage("./img/pokeball.gif")
             pokeId("")
             pokeTitle("Lista no encontrada")
@@ -84,8 +85,9 @@ const allPokemons= () =>{
     }).then((data) => {
         informartion.style.display="none";
         allPokemonList.style.display="inline";
-
-        console.log(data);
+        pokeTitle("Pokemones disponibles")
+        pokeId("")
+        
         const pokemons= data.results;
         pokeImage("./img/pokeball.gif")
         // Filtro de ide de cada pokemon
