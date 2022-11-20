@@ -18,7 +18,7 @@ const cambiarPokemon =() =>{
         //Si no se encuntra el pokemon
         if (res.status != "200") {
             console.log(res);
-            pokeImage("../img/Error.jpg")
+            pokeImage("./img/Error.jpg")
             informartion.style.display="none"
             pokeId("")
             pokeTitle("Pokémon no encontrado")
@@ -72,7 +72,7 @@ const allPokemons= () =>{
         //Si no se encuentra la lista
         if (res.status != "200") {
             console.log(res);
-            pokeImage("https://64.media.tumblr.com/93345311779201f1a31868b3fd999065/tumblr_ny96gguwnC1rzsfkvo1_250.gif")
+            pokeImage("./img/pokeball.gif")
             pokeId("")
             pokeTitle("Lista no encontrada")
             pokeWH("","")
@@ -87,7 +87,7 @@ const allPokemons= () =>{
 
         console.log(data);
         const pokemons= data.results;
-        pokeImage("../img/pokeball.gif")
+        pokeImage("./img/pokeball.gif")
         // Filtro de ide de cada pokemon
 
         const url= pokemons.map((i)=>i.url)
