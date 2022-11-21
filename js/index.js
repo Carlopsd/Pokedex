@@ -5,7 +5,7 @@ const cambiarPokemon =() =>{
 
     const nombrePokemon = document.getElementById("pokemon");
     let pokeNombre = nombrePokemon.value;
-    pokeNombre= pokeNombre.toLowerCase().replace(/[^a-zA-Z 0-9.]+/g,' '); 
+    pokeNombre= pokeNombre.toLowerCase().replace(/[^a-zA-Z 0-9.]+/g,' ').trim(); 
 
 
     if (!isNaN(pokeNombre)){
