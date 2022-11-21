@@ -2,7 +2,7 @@ const informartion = document.getElementById("information");
 const allPokemonList =document.getElementById("all-pokemons");
 
 const cambiarPokemon =() =>{
-
+    
     const nombrePokemon = document.getElementById("pokemon");
     let pokeNombre = nombrePokemon.value;
     pokeNombre= pokeNombre.toLowerCase().replace(/[^a-zA-Z 0-9.]+/g,' ').trim(); 
@@ -13,7 +13,7 @@ const cambiarPokemon =() =>{
     }
 
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeNombre}`;
-
+    
     fetch(url).then((res) => {
         //Si no se encuntra el pokemon
         if (res.status != "200") {
@@ -32,10 +32,9 @@ const cambiarPokemon =() =>{
         if (data) {
             informartion.style.display="inline";
             allPokemonList.style.display="none";
-            console.log(data)
+            // console.log(data)
             let pokeImg = data.sprites.front_default;
             pokeImage(pokeImg);
-            console.log(pokeImg);
             let id= data.id;
             pokeId(id);
             let poketitle = data.name;
@@ -50,7 +49,9 @@ const cambiarPokemon =() =>{
             pokeMoves(pokemoves);
             let weight= data.weight;
             let height=data.height;
-            pokeWH(weight,height)
+            pokeWH(weight,height);
+
+            extraImage(id,url)
         }   
     });
 }
@@ -99,12 +100,38 @@ const allPokemons= () =>{
 
         const pokemon = pokemons.map((i)=> i.name)
         const listPokemons=document.getElementById("list-pokemons")
-        let list=" ";
+        let list="<h1>Lista de Pokemons disponibles</h1>";
         pokemon.forEach((i,index)=> list += `<dt>${id[index]}: ${i}</dt>`);
         listPokemons.innerHTML= list;
-    });
+    });    
 }
+const nextPokemon=()=> {
+    const id = String (document.getElementById("Pokemon-id").innerHTML).replace(/[^0-9]+/g, "")
+    
+    if (id<10249){
+        var nombrePokemon = document.getElementById("pokemon");
+        if(id== 905 && id <10001 ){
+            nombrePokemon.value = Number(10001);
+        }else{
+            nombrePokemon.value = Number(id)+1;
+        }
+        cambiarPokemon();
+    }
+}
+const previousPokemon=()=> {
 
+    const id = String (document.getElementById("Pokemon-id").innerHTML).replace(/[^0-9]+/g, "")
+    if(id && id >1){
+        var nombrePokemon = document.getElementById("pokemon");
+        if(id== 10001 && id >905 ){
+            nombrePokemon.value = Number(905);
+        }else{
+            nombrePokemon.value = Number(id)-1;
+        }
+
+        cambiarPokemon();
+    }
+}
 
 
 //Función para poner la imagen 
@@ -177,5 +204,30 @@ const  pokeMoves =(moves) => {
 const pokeWH = (weight, height) => {
     document.getElementById("weight").innerHTML=`<h1>Peso: ${weight/10} kg</h1>`;
     document.getElementById("height").innerHTML=`<h1>Altura: ${height/10} m</h1>`;;
+}
+
+const extraImage = (id) =>{
+    const right= Number(id)+1;
+    const left =Number(id)-1
+    const urlRight=`https://pokeapi.co/api/v2/pokemon/${right}`
+    const urlLeft=`https://pokeapi.co/api/v2/pokemon/${left}`
+    fetch(urlRight).then((res) => {
+        if (res.status != "200") {
+        }
+        else {
+            return res.json();
+        }
+    }).then((data) => {
+        document.getElementById("r").src=data.sprites.front_default;
+    }); 
+    fetch(urlLeft).then((res) => {
+        if (res.status != "200") {
+        }
+        else {
+            return res.json();
+        }
+    }).then((data) => {
+        document.getElementById("l").src=data.sprites.front_default;
+    }); 
 }
 

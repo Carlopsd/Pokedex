@@ -139,6 +139,7 @@
             font-size: 3.4rem;
             background-color: #212529;
             box-shadow: -3px 3px 1px #343a40;
+            cursor: pointer;
         }
         div {
             text-align: center;
@@ -154,6 +155,18 @@
         width: 150px;
         height: 90px;
         border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img{
+            width: 70px;
+            height: auto;
+        }
     }
 }
 

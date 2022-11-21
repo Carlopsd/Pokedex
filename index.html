@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="stylesheet" href="./css/index.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,16 +69,27 @@
 
         <div class="direction-buttons"> <!-- Botones de cruz -->
         <div></div>
-        <div><i class="bi bi-caret-up-square-fill"></i></div>
+        <div><i class="bi bi-caret-up-square-fill" onclick="previousPokemon()"></i></div>
         <div></div>
-        <div><i class="bi bi-caret-left-square-fill" id="left"></i></div>
+        <div><i class="bi bi-caret-left-square-fill" onclick="previousPokemon()"></i></div>
         <div><i class="bi bi-square-fill" id="center"></i></div>
-        <div><i class="bi bi-caret-right-square-fill"></i></div>
+        <div><i class="bi bi-caret-right-square-fill" onclick="nextPokemon()"></i></div>
         <div></div>
-        <div><i class="bi bi-caret-down-square-fill"></i></div>
+        <div><i class="bi bi-caret-down-square-fill" onclick="nextPokemon()"></i></div>
         <div></div>
     </div>
-    <div class="green-part"></div>
+    <div class="green-part">
+        <div>
+            <img id="l" src="" alt="">
+            <i class="bi bi-caret-left-fill"></i>
+        </div>
+        
+        <div>
+            <img id="r" src="" alt="">
+            <i class="bi bi-caret-right-fill"></i>
+        </div>
+        
+    </div>
     </section>
 
     <section class="right">

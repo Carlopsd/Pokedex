@@ -126,6 +126,7 @@
   font-size: 3.4rem;
   background-color: #212529;
   box-shadow: -3px 3px 1px #343a40;
+  cursor: pointer;
 }
 .left .direction-buttons div {
   text-align: center;
@@ -139,6 +140,18 @@
   width: 150px;
   height: 90px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.left .green-part div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.left .green-part img {
+  width: 70px;
+  height: auto;
 }
 
 .right {
