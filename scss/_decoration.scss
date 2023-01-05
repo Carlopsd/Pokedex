@@ -66,7 +66,7 @@
     }
 
     .blue-led{
-        background-color: #0BCDFF;
+        background-color: #0096c7;
         width: 50px;
         height: 50px;
         border-radius: 30px;
@@ -77,7 +77,7 @@
         @include shadow();
 
         .dot{
-            background-color: #9CE8FF;
+            background-color: #48cae4;
             width: 20px;
             height: 20px;
             border-radius: 10px;
@@ -126,27 +126,41 @@
 
     .direction-buttons {
         position: relative;
-        margin-top: -40px;
+        margin-top: -50px;
+        left: 55%;
         display: grid;
-        justify-content: flex-end;
-        right: 20px;
-        grid-template-columns: 55px 55px 55px;
-
+        grid-template-columns: 54px 55px 54px;
         #left{
             position: sticky;
+            font-size: 56px;
+        }
+        #center{
+            align-self: center;
+            margin-top: 1px;
+            background-color: black;
+            position: sticky;
+            height: 60px;
         }
         i{
             font-size: 3.4rem;
-            background-color: #212529;
-            box-shadow: -3px 3px 1px #343a40;
-            cursor: pointer;
+            background-color:#02040f;
+            color:#212529;
+            border-radius: 10px;
+            box-shadow: -5px 5px 5px black;
+            
+            padding: 0;
+            &:hover{
+                cursor: pointer;
+            }
+            &:active{
+                box-shadow: -1px 1px 1px black;
+            }
         }
         div {
             text-align: center;
             margin: -5px 0px ;
         }
     }
-
     .green-part{
         position: relative;
         top:-100px;
